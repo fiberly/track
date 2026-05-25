@@ -324,19 +324,49 @@
   carousel.addEventListener('touchend', startAutoScroll);
 
 
-  let isScrolling = false;
+  const container = document.querySelector('.card-scroll');
 
-const container = document.querySelector('.card-scroll');
+let startX = 0;
 
-container.addEventListener('touchstart', () => isScrolling = false);
+let startY = 0;
 
-container.addEventListener('touchmove', () => isScrolling = true);
+let moved = false;
+
+container.addEventListener('touchstart', (e) => {
+
+  const t = e.touches[0];
+
+  startX = t.clientX;
+
+  startY = t.clientY;
+
+  moved = false;
+
+});
+
+container.addEventListener('touchmove', (e) => {
+
+  const t = e.touches[0];
+
+  const dx = Math.abs(t.clientX - startX);
+
+  const dy = Math.abs(t.clientY - startY);
+
+  if (dx > 5 || dy > 5) {
+
+    moved = true;
+
+  }
+
+});
 
 container.addEventListener('click', (e) => {
 
-  if (isScrolling) {
+  if (moved) {
 
     e.preventDefault();
+
+    e.stopPropagation();
 
   }
 
