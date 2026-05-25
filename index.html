@@ -6,12 +6,15 @@
   <title>Track</title>
   <style>
     html, body {
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-image: url("./background/background.JPG"); 
+      overscroll-behavior: none;
     }
     
    body { 
     background-color: azure;
-    background-image: url("./background/background.JPG"); 
+    
     background-size:cover; 
     background-position: center center;
     
@@ -111,6 +114,8 @@
     display: flex; 
     justify-content: center;
     gap: 15px;
+    padding-right: 10px;
+    padding-left: 10px; 
   }
    
    .nav a { 
@@ -140,13 +145,14 @@
 
   .card-scroll { 
     margin-top: 40px;
-    height: 60vh; 
+    height: 65vh; 
     width: 100%;
     overflow-x: auto; 
-    
+    overflow-y: hidden;
     scroll-snap-type: x mandatory; 
+    flex-wrap: nowrap;
     
-    
+    -webkit-overflow-scrolling: touch;
     
     scroll-behavior: smooth; 
     display: flex;
@@ -154,13 +160,16 @@
     justify-content: flex-start;
     box-sizing: border-box;
 
-    
+    touch-action: pan-x;
+
+    scrollbar-width: none;
    
   }
 
 
    .card-scroll::-webkit-scrollbar {
     height: 8px;
+    display:none;
    }
    .card-scroll::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.3);
@@ -177,6 +186,22 @@
     padding-bottom: 10px;
     font-size: 15px;
     line-height: 1.2;
+  }
+
+  @media (max-width: 500px) {
+    .card-content li {
+      font-size: 11px;
+      line-height: 1;
+
+    }
+    .card-content {
+      font-size: 11px;
+    }
+
+    .card {
+      height: 300px;
+
+    }
   }
 
   </style>
