@@ -1,2 +1,2 @@
-# track
-The webpage for the track application.
+# FinTrack
+The webpage for the FinTrack application.
