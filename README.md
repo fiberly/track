@@ -1,2 +1,2 @@
-# FinTrack
-The webpage for the FinTrack application.
+# FinTra
+The webpage for the FinTra application.
